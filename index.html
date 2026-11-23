@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaiqa &amp; Grill | Family Restaurant — Shahdara, Lahore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           1. GLOBAL RESET & VARIABLES
+           ========================================================= */
+        :root {
+            --primary-color: #b83b27;
+            --primary-dark: #8f2a1a;
+            --accent-gold: #e09f3e;
+            --bg-cream: #fdfaf5;
+            --bg-white: #ffffff;
+            --text-dark: #2b2623;
+            --text-muted: #5f5854;
+            --border-light: #e5ddd3;
+            --shadow-card: 0 4px 12px rgba(43, 38, 35, 0.08);
+            --nav-height: 72px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
+
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: var(--nav-height);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', Georgia, serif;
+            color: var(--text-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: min(92%, 1120px);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 64px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.65rem, 3vw, 2.15rem);
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .underline-bar {
+            width: 65px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* =========================================================
+           2. FIXED TOP NAVIGATION BAR
+           ========================================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: var(--bg-white);
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            width: min(92%, 1120px);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 6px 4px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .nav-btn {
+            background-color: var(--primary-color);
+            color: #ffffff !important;
+            padding: 9px 16px !important;
+            border-radius: 5px;
+            border-bottom: none !important;
+            transition: background-color 0.2s ease !important;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--text-dark);
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .menu-toggle.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* =========================================================
+           3. HERO SECTION
+           ========================================================= */
+        .hero {
+            background: linear-gradient(rgba(30, 20, 15, 0.8), rgba(43, 24, 16, 0.88)),
+                        radial-gradient(circle at top right, #b83b27, #2b1810);
+            color: #ffffff;
+            padding: 72px 0;
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(224, 159, 62, 0.18);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: clamp(1.95rem, 4vw, 2.75rem);
+            line-height: 1.22;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: #e8e0d8;
+            font-size: 1.02rem;
+            margin-bottom: 26px;
+            max-width: 560px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.94rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+        }
+
+        .hero-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .hero-card p {
+            margin: 12px auto 0;
+            font-size: 0.92rem;
+            color: #f6dfb8;
+        }
+
+        /* =========================================================
+           4. MENU SECTION, SEARCH & FILTER TABS
+           ========================================================= */
+        .menu-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            border: 1px solid var(--border-light);
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+
+        .menu-search-wrap {
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .menu-search-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cfc6bc;
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.92rem;
+            background-color: var(--bg-white);
+        }
+
+        .menu-search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-gold);
+        }
+
+        .menu-card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .dish-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background-color: #fdf2e9;
+            border: 1px solid #f5cba7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .dish-title-wrap h3 {
+            font-size: 1.06rem;
+            margin-bottom: 3px;
+        }
+
+        .category-tag {
+            display: inline-block;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: #fbeae7;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .menu-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .menu-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border-light);
+            gap: 8px;
+        }
+
+        .price {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+
+        .spice-level {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .empty-menu-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 36px 20px;
+            background-color: var(--bg-white);
+            border: 1px dashed var(--border-light);
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        /* =========================================================
+           5. ABOUT US SECTION
+           ========================================================= */
+        .about-section {
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .about-illustration-box {
+            background-color: var(--bg-cream);
+            border: 2px solid var(--border-light);
+            border-radius: 10px;
+            padding: 26px;
+            text-align: center;
+        }
+
+        .chef-quote {
+            margin-top: 16px;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.93rem;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 12px;
+            text-align: left;
+        }
+
+        .about-content h3 {
+            font-size: clamp(1.3rem, 2.5vw, 1.55rem);
+            margin-bottom: 12px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.96rem;
+        }
+
+        .highlights-list {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .highlight-item {
+            background-color: var(--bg-cream);
+            border: 1px solid var(--border-light);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .highlight-item span {
+            color: var(--primary-color);
+            margin-right: 6px;
+        }
+
+        /* =========================================================
+           6. GALLERY / SIGNATURE HIGHLIGHTS
+           ========================================================= */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+        }
+
+        .gallery-art {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f7efe5;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .gallery-caption {
+            padding: 14px;
+        }
+
+        .gallery-caption h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .gallery-caption p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* =========================================================
+           7. TABLE BOOKING & CONTACT SECTION
+           ========================================================= */
+        .booking-contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .booking-box, .contact-box {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .booking-box h3, .contact-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-cream);
+            color: var(--primary-color);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cfc6bc;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.94rem;
+            background-color: #fff;
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .form-message.success {
+            display: block;
+            background-color: #eaf7ee;
+            border: 1px solid #8fd19e;
+            color: #1e5631;
+        }
+
+        .form-message.error {
+            display: block;
+            background-color: #fdecea;
+            border: 1px solid #f5b7b1;
+            color: #8f2a1a;
+        }
+
+        .contact-info-list li {
+            margin-bottom: 15px;
+            font-size: 0.94rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info-list strong {
+            display: block;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.88rem;
+        }
+
+        .hours-table td {
+            padding: 8px 4px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        /* =========================================================
+           8. FOOTER
+           ========================================================= */
+        footer {
+            background-color: #261e1b;
+            color: #d8cfc8;
+            padding: 38px 0 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: var(--accent-gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px 22px;
+            margin: 18px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-size: 0.84rem;
+            color: #9e938b;
+            border-top: 1px solid #3c312d;
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        /* =========================================================
+           9. RESPONSIVE MEDIA QUERIES
+           ========================================================= */
+        @media (max-width: 900px) {
+            .hero-grid,
+            .about-grid,
+            .booking-contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 52px 0;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-white);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 16px 4%;
+                gap: 8px;
+                border-bottom: 2px solid var(--primary-color);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+                display: none;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 10px 8px;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-btn {
+                text-align: center;
+                margin-top: 4px;
+                border-bottom: none !important;
+            }
+        }
+
+        @media (max-width: 540px) {
+            section {
+                padding: 48px 0;
+            }
+
+            .form-row,
+            .highlights-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .booking-box,
+            .contact-box {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="18" cy="18" r="17" fill="#b83b27"/>
+                    <path d="M18 7C18 7 24 13 24 19C24 22.866 21.3137 26 18 26C14.6863 26 12 22.866 12 19C12 16.5 13.5 14 15 12.5C15 14.5 16.5 15.5 17 15.5C16.5 12.5 18 7 18 7Z" fill="#e09f3e"/>
+                </svg>
+                Zaiqa <span>&amp; Grill</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks" aria-label="Primary Navigation">
+                <a href="#home" class="active">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About Us</a>
+                <a href="#gallery">Specialties</a>
+                <a href="#booking" class="nav-btn">Book a Table</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="hero-badge">Shahdara, Lahore • Serving Fresh Desi &amp; BBQ Since 2016</span>
+                <h1>Asli Masala, Garam Tandoor &amp; Shahdara Ka Zaiqa</h1>
+                <p>Welcome to Zaiqa &amp; Grill on Main GT Road, Shahdara — your go-to family restaurant in North Lahore. Every karahi is cooked fresh to order on high flame, and our charcoal BBQ comes straight off the skewers.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+                    <a href="#booking" class="btn btn-outline">Reserve a Family Table</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <svg width="160" height="125" viewBox="0 0 180 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Karahi illustration">
+                    <path d="M65 32C65 24 73 22 73 14" stroke="#e09f3e" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M90 28C90 20 98 18 98 10" stroke="#e09f3e" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M115 32C115 24 123 22 123 14" stroke="#e09f3e" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M22 65C10 65 10 82 25 82" stroke="#d4af37" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M158 65C170 65 170 82 155 82" stroke="#d4af37" stroke-width="5" stroke-linecap="round"/>
+                    <ellipse cx="90" cy="66" rx="64" ry="16" fill="#d9532f"/>
+                    <circle cx="75" cy="64" r="4" fill="#4caf50"/>
+                    <circle cx="102" cy="67" r="4" fill="#4caf50"/>
+                    <rect x="85" y="61" width="12" height="3" rx="1.5" fill="#fff3cd"/>
+                    <path d="M26 66C26 105 55 122 90 122C125 122 154 105 154 66H26Z" fill="#3a322e" stroke="#5c504a" stroke-width="3"/>
+                </svg>
+                <p><strong>Shahdara Special:</strong> Special Peshawari Mutton Karahi + 4 Roghni Naan — <strong>Rs. 2,450</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Fresh Menu</h2>
+                <p>Filter by category or search a dish. All prices are in Pakistani Rupees (PKR) inclusive of fresh mint chutney &amp; salad.</p>
+                <div class="underline-bar"></div>
+            </div>
+
+            <div class="menu-controls">
+                <div class="filter-buttons" id="filterButtons" role="group" aria-label="Menu Categories">
+                    <button type="button" class="filter-btn active" data-category="all">All Dishes</button>
+                    <button type="button" class="filter-btn" data-category="starters">Starters</button>
+                    <button type="button" class="filter-btn" data-category="karahi">BBQ &amp; Karahi</button>
+                    <button type="button" class="filter-btn" data-category="main">Main Course</button>
+                    <button type="button" class="filter-btn" data-category="drinks">Drinks &amp; Desserts</button>
+                </div>
+
+                <div class="menu-search-wrap">
+                    <label for="menuSearch" class="form-group" style="position:absolute;left:-9999px;">Search Menu</label>
+                    <input
+                        type="search"
+                        id="menuSearch"
+                        class="menu-search-input"
+                        placeholder="Search karahi, kabab, biryani, naan..."
+                        autocomplete="off"
+                    >
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container about-grid">
+            <div class="about-illustration-box">
+                <svg width="200" height="150" viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Tandoor hearth illustration">
+                    <rect x="25" y="30" width="170" height="110" rx="10" fill="#fbeee6" stroke="#b83b27" stroke-width="3"/>
+                    <path d="M65 140V95C65 70.1472 85.1472 50 110 50C134.853 50 155 70.1472 155 95V140H65Z" fill="#2b2623"/>
+                    <path d="M110 85C110 85 126 102 126 116C126 125.941 118.837 134 110 134C101.163 134 94 125.941 94 116C94 108 100 101 104 97C104 103 108 106 109 106C108 98 110 85 110 85Z" fill="#e09f3e"/>
+                    <path d="M110 102C110 102 118 111 118 120C118 125.523 114.418 130 110 130C105.582 130 102 125.523 102 120C102 115 106 109 110 102Z" fill="#b83b27"/>
+                </svg>
+                <div class="chef-quote">
+                    "Whether families are coming from Begum Kot, Ravi Town, or Sheikhupura Road, good food comes down to fresh meat, whole roasted spices, and patience over slow coal fire."
+                    <br><strong>— Ustad Tariq Mahmood, Head Chef (Shahdara)</strong>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <h3>A Shahdara Family Kitchen Built on Honest Flavors</h3>
+                <p>Zaiqa &amp; Grill started as a welcoming family eatery in Shahdara, Lahore in 2016 with one simple goal: serve clean, freshly cooked desi meals that feel like a true gathering at home.</p>
+                <p>Conveniently located along the GT Road corridor near Begum Kot and Ravi Bridge, we never pre-cook our gravies. Every karahi, seekh kabab, and tandoori naan is prepared hot to order for your table.</p>
+
+                <div class="highlights-list">
+                    <div class="highlight-item"><span>&#10003;</span> 100% Fresh Halal Meat</div>
+                    <div class="highlight-item"><span>&#10003;</span> Home-Ground Spices</div>
+                    <div class="highlight-item"><span>&#10003;</span> Separate Family Hall</div>
+                    <div class="highlight-item"><span>&#10003;</span> Shahdara Takeaway &amp; Dine-In</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kitchen Highlights</h2>
+                <p>A quick look at what makes Shahdara families and late-night diners come back every week.</p>
+                <div class="underline-bar"></div>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-art">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                            <line x1="15" y1="65" x2="65" y2="15" stroke="#5f5854" stroke-width="4" stroke-linecap="round"/>
+                            <rect x="24" y="42" width="14" height="12" rx="4" transform="rotate(-45 24 42)" fill="#b83b27"/>
+                            <rect x="38" y="28" width="14" height="12" rx="4" transform="rotate(-45 38 28)" fill="#d9532f"/>
+                            <circle cx="54" cy="26" r="5" fill="#4caf50"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Live Charcoal Seekh</h4>
+                        <p>Marinated overnight with raw papaya &amp; herbs.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-art">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                            <circle cx="40" cy="40" r="26" fill="#e09f3e" stroke="#b87314" stroke-width="3"/>
+                            <circle cx="33" cy="34" r="3" fill="#8f2a1a"/>
+                            <circle cx="47" cy="36" r="3" fill="#8f2a1a"/>
+                            <circle cx="38" cy="48" r="3" fill="#8f2a1a"/>
+                            <circle cx="46" cy="45" r="2.5" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Roghni &amp; Garlic Naan</h4>
+                        <p>Brushed with desi butter straight out of our clay oven.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-art">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                            <path d="M22 36H58L52 60H28L22 36Z" fill="#b83b27"/>
+                            <ellipse cx="40" cy="36" rx="18" ry="6" fill="#e09f3e"/>
+                            <path d="M35 24C35 20 40 18 40 14" stroke="#8f2a1a" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Iron Wok Karahi</h4>
+                        <p>Cooked in traditional heavy iron karahi with fresh tomatoes.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-art">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                            <path d="M28 24H52L48 62H32L28 24Z" fill="#f9e79f" stroke="#d4ac0d" stroke-width="2.5"/>
+                            <line x1="40" y1="24" x2="48" y2="12" stroke="#2e7d32" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="38" cy="38" r="3" fill="#4caf50"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Fresh Mint Margarita</h4>
+                        <p>Chilled garden mint &amp; lemon cooler for warm Lahore evenings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking">
+        <div class="container booking-contact-grid">
+            <div class="booking-box">
+                <h3>Book a Table in Shahdara</h3>
+                <form id="reservationForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestName">Full Name *</label>
+                            <input type="text" id="guestName" placeholder="e.g. Bilal Ahmed" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestPhone">Phone Number *</label>
+                            <input type="tel" id="guestPhone" placeholder="e.g. 0300-1234567" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestCount">Number of Guests *</label>
+                            <select id="guestCount">
+                                <option value="2">2 Persons</option>
+                                <option value="4" selected>4 Persons (Family Table)</option>
+                                <option value="6">6 Persons</option>
+                                <option value="8+">8+ Persons (Large Group)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingDate">Date *</label>
+                            <input type="date" id="bookingDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingTime">Preferred Time *</label>
+                            <select id="bookingTime">
+                                <option value="01:30 PM">01:30 PM (Lunch)</option>
+                                <option value="03:00 PM">03:00 PM (Afternoon)</option>
+                                <option value="07:30 PM">07:30 PM (Early Dinner)</option>
+                                <option value="09:00 PM" selected>09:00 PM (Prime Dinner)</option>
+                                <option value="11:00 PM">11:00 PM (Late Night)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="seatingArea">Seating Area</label>
+                            <select id="seatingArea">
+                                <option value="AC Family Hall">AC Family Hall</option>
+                                <option value="Open-Air Rooftop">Open-Air Rooftop</option>
+                                <option value="Main Dining Area">Main Dining Area</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialNote">Special Request (Optional)</label>
+                        <textarea id="specialNote" rows="2" placeholder="Birthday setup, baby chair, mild spice preference..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Table Reservation</button>
+
+                    <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+                </form>
+            </div>
+
+            <div class="contact-box">
+                <h3>Visit Shahdara Branch</h3>
+                <ul class="contact-info-list">
+                    <li>
+                        <strong>Address:</strong>
+                        Plot 14-B, Main GT Road, Near Begum Kot Chowk, Shahdara, Lahore
+                    </li>
+                    <li>
+                        <strong>Phone &amp; Takeaway Orders:</strong>
+                        +92 42 3792-8890 / 0321-4455678
+                    </li>
+                    <li>
+                        <strong>Email:</strong>
+                        shahdara@zaiqagrill.pk
+                    </li>
+                </ul>
+
+                <h4 style="margin-top: 20px; font-size: 1.05rem;">Opening Hours</h4>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday - Thursday</td>
+                        <td>12:30 PM – 12:30 AM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>02:30 PM – 01:30 AM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday - Sunday</td>
+                        <td>12:30 PM – 02:00 AM</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Zaiqa <span>&amp; Grill</span></div>
+            <p>Shahdara, Lahore • Authentic Desi Karahi, Charcoal BBQ &amp; Fresh Tandoor</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About Us</a>
+                <a href="#gallery">Specialties</a>
+                <a href="#booking">Book a Table</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Zaiqa &amp; Grill Family Restaurant — Shahdara, Lahore. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuItems = [
+            {
+                name: "Chicken Hot & Sour Soup",
+                category: "starters",
+                categoryLabel: "Starter",
+                price: "Rs. 450",
+                spice: "Mild",
+                desc: "Rich chicken stock simmered with shredded chicken, mushrooms, egg drops, and black pepper.",
+                iconType: "bowl"
+            },
+            {
+                name: "Crispy Masala Fries",
+                category: "starters",
+                categoryLabel: "Starter",
+                price: "Rs. 380",
+                spice: "Medium",
+                desc: "Hand-cut golden potato fries tossed in our house chaat masala, served with garlic mayo.",
+                iconType: "plate"
+            },
+            {
+                name: "Chicken Malai Boti (12 Pcs)",
+                category: "karahi",
+                categoryLabel: "BBQ & Karahi",
+                price: "Rs. 1,150",
+                spice: "Mild & Creamy",
+                desc: "Boneless chicken cubes marinated in fresh cream, yogurt, green chili paste, and white pepper.",
+                iconType: "skewer"
+            },
+            {
+                name: "Mutton Charsi Karahi (Half)",
+                category: "karahi",
+                categoryLabel: "BBQ & Karahi",
+                price: "Rs. 1,950",
+                spice: "Medium Spicy",
+                desc: "Tender mutton cooked in its own fat with red tomatoes, crushed black pepper, and fresh ginger.",
+                iconType: "bowl"
+            },
+            {
+                name: "Reshmi Beef Seekh Kabab",
+                category: "karahi",
+                categoryLabel: "BBQ & Karahi",
+                price: "Rs. 980",
+                spice: "Spicy",
+                desc: "Juicy minced beef skewers blended with roasted gram flour, caramelized onions, and fresh mint.",
+                iconType: "skewer"
+            },
+            {
+                name: "Special Chicken Biryani",
+                category: "main",
+                categoryLabel: "Main Course",
+                price: "Rs. 620",
+                spice: "Spicy",
+                desc: "Fragrant aged basmati rice layered with spicy chicken masala, plums, and saffron aroma.",
+                iconType: "plate"
+            },
+            {
+                name: "Daal Makhni Tadka",
+                category: "main",
+                categoryLabel: "Main Course",
+                price: "Rs. 550",
+                spice: "Medium",
+                desc: "Slow-cooked black lentils finished with desi butter, cream, and whole red chili garlic tadka.",
+                iconType: "bowl"
+            },
+            {
+                name: "Shahi Tukray (2 Pcs)",
+                category: "drinks",
+                categoryLabel: "Dessert",
+                price: "Rs. 420",
+                spice: "Sweet",
+                desc: "Crisp fried bread soaked in cardamom sugar syrup, topped with thick rabri and sliced almonds.",
+                iconType: "plate"
+            },
+            {
+                name: "Fresh Mint Margarita",
+                category: "drinks",
+                categoryLabel: "Drink",
+                price: "Rs. 290",
+                spice: "Chilled",
+                desc: "Refreshing blend of garden-fresh mint leaves, fresh lemon juice, black salt, and crushed ice.",
+                iconType: "drink"
+            }
+        ];
+
+        function getDishSVG(type) {
+            if (type === "skewer") {
+                return `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <line x1="5" y1="27" x2="27" y2="5" stroke="#b83b27" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="12" cy="20" r="3.5" fill="#e09f3e"/>
+                    <circle cx="19" cy="13" r="3.5" fill="#b83b27"/>
+                </svg>`;
+            }
+            if (type === "drink") {
+                return `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <path d="M10 8H22L20 26H12L10 8Z" stroke="#b83b27" stroke-width="2.2" fill="#e09f3e" fill-opacity="0.3"/>
+                    <line x1="16" y1="8" x2="21" y2="3" stroke="#2e7d32" stroke-width="2.2" stroke-linecap="round"/>
+                </svg>`;
+            }
+            return `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M6 16H26C26 21.5228 21.5228 26 16 26C10.4772 26 6 21.5228 6 16Z" fill="#b83b27"/>
+                <path d="M11 11C11 9 13 8 13 6M19 11C19 9 21 8 21 6" stroke="#e09f3e" stroke-width="2" stroke-linecap="round"/>
+            </svg>`;
+        }
+
+        function escapeHTML(str) {
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        const menuGrid = document.getElementById("menuGrid");
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const menuSearch = document.getElementById("menuSearch");
+
+        let activeCategory = "all";
+        let searchQuery = "";
+
+        function renderMenu() {
+            const normalizedQuery = searchQuery.trim().toLowerCase();
+
+            const filteredItems = menuItems.filter(item => {
+                const matchesCategory = activeCategory === "all" || item.category === activeCategory;
+                const matchesSearch =
+                    !normalizedQuery ||
+                    item.name.toLowerCase().includes(normalizedQuery) ||
+                    item.desc.toLowerCase().includes(normalizedQuery) ||
+                    item.categoryLabel.toLowerCase().includes(normalizedQuery) ||
+                    item.spice.toLowerCase().includes(normalizedQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filteredItems.length === 0) {
+                menuGrid.innerHTML = `
+                    <div class="empty-menu-state">
+                        No dish found matching "<strong>${escapeHTML(searchQuery.trim())}</strong>". Try another keyword or switch category.
+                    </div>
+                `;
+                return;
+            }
+
+            menuGrid.innerHTML = filteredItems.map(item => `
+                <article class="menu-card">
+                    <div>
+                        <div class="menu-card-top">
+                            <div class="dish-icon-box">${getDishSVG(item.iconType)}</div>
+                            <div class="dish-title-wrap">
+                                <h3>${item.name}</h3>
+                                <span class="category-tag">${item.categoryLabel}</span>
+                            </div>
+                        </div>
+                        <p class="menu-desc">${item.desc}</p>
+                    </div>
+                    <div class="menu-card-footer">
+                        <span class="price">${item.price}</span>
+                        <span class="spice-level">Taste: <strong>${item.spice}</strong></span>
+                    </div>
+                </article>
+            `).join("");
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                filterButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                activeCategory = button.dataset.category;
+                renderMenu();
+            });
+        });
+
+        menuSearch.addEventListener("input", e => {
+            searchQuery = e.target.value;
+            renderMenu();
+        });
+
+        renderMenu();
+
+        // Mobile Navigation Toggle + Active Link Sync
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+        const navAnchors = navLinks.querySelectorAll("a[href^='#']");
+        const trackedSections = document.querySelectorAll("section[id]");
+
+        function setMenuState(isOpen) {
+            navLinks.classList.toggle("show", isOpen);
+            menuToggle.classList.toggle("open", isOpen);
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+        }
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = !navLinks.classList.contains("show");
+            setMenuState(isOpen);
+        });
+
+        navAnchors.forEach(link => {
+            link.addEventListener("click", () => {
+                setMenuState(false);
+            });
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape" && navLinks.classList.contains("show")) {
+                setMenuState(false);
+                menuToggle.focus();
+            }
+        });
+
+        document.addEventListener("click", e => {
+            if (
+                navLinks.classList.contains("show") &&
+                !navLinks.contains(e.target) &&
+                !menuToggle.contains(e.target)
+            ) {
+                setMenuState(false);
+            }
+        });
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 120;
+            let currentId = "home";
+
+            trackedSections.forEach(sec => {
+                if (scrollPos >= sec.offsetTop) {
+                    currentId = sec.id;
+                }
+            });
+
+            navAnchors.forEach(anchor => {
+                const hrefId = anchor.getAttribute("href").slice(1);
+                anchor.classList.toggle("active", hrefId === currentId);
+            });
+        }
+
+        window.addEventListener("scroll", updateActiveNav, { passive: true });
+        updateActiveNav();
+
+        // Local Date Helper (avoids UTC shift issues)
+        function getLocalDateISO() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, "0");
+            const day = String(now.getDate()).padStart(2, "0");
+            return `${year}-${month}-${day}`;
+        }
+
+        // Reservation Form Handling
+        const reservationForm = document.getElementById("reservationForm");
+        const formMessage = document.getElementById("formMessage");
+        const bookingDateInput = document.getElementById("bookingDate");
+
+        const todayISO = getLocalDateISO();
+        bookingDateInput.value = todayISO;
+        bookingDateInput.min = todayISO;
+
+        function isValidPakistaniPhone(rawPhone) {
+            const digitsOnly = rawPhone.replace(/[\s\-()]/g, "");
+            return /^(?:\+92|0092|0)?3\d{9}$/.test(digitsOnly) || /^0?42\d{7,8}$/.test(digitsOnly);
+        }
+
+        function showMessage(htmlText, type) {
+            formMessage.innerHTML = htmlText;
+            formMessage.className = "form-message " + type;
+        }
+
+        reservationForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("guestName").value.trim();
+            const phone = document.getElementById("guestPhone").value.trim();
+            const guests = document.getElementById("guestCount").value;
+            const date = bookingDateInput.value;
+            const time = document.getElementById("bookingTime").value;
+            const area = document.getElementById("seatingArea").value;
+            const note = document.getElementById("specialNote").value.trim();
+
+            if (name.length < 3) {
+                showMessage("Please enter your full name (at least 3 characters).", "error");
+                document.getElementById("guestName").focus();
+                return;
+            }
+
+            if (!isValidPakistaniPhone(phone)) {
+                showMessage("Please enter a valid mobile number (e.g. 0300-1234567) or Lahore landline.", "error");
+                document.getElementById("guestPhone").focus();
+                return;
+            }
+
+            if (!date || date < todayISO) {
+                showMessage("Please select today or an upcoming reservation date.", "error");
+                bookingDateInput.focus();
+                return;
+            }
+
+            const noteLine = note
+                ? `<br><small>Note: ${escapeHTML(note)}</small>`
+                : "";
+
+            const confirmationText = `
+                <strong>Shukriya, ${escapeHTML(name)}!</strong> Your table for <strong>${escapeHTML(guests)} guests</strong>
+                in our <strong>${escapeHTML(area)}</strong> at our <strong>Shahdara, Lahore</strong> branch is requested for
+                <strong>${escapeHTML(date)}</strong> at <strong>${escapeHTML(time)}</strong>.
+                Our front desk will confirm via SMS/Call on <strong>${escapeHTML(phone)}</strong> shortly.${noteLine}
+            `;
+
+            showMessage(confirmationText, "success");
+            reservationForm.reset();
+            bookingDateInput.value = todayISO;
+        });
+    </script>
+</body>
+</html>
